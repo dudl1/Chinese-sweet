@@ -3,7 +3,7 @@ const {createClient} = require("@supabase/supabase-js");
 const nodemailer = require("nodemailer");
 const app = express();
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 const supabase = createClient(
   "https://qtsdplzasxqzgskoybdj.supabase.co",
@@ -23,4 +23,6 @@ app.get('/', function (req, res)
   res.sendFile(__dirname + '/assets/index.html');
 })
 
-app.listen(port, function() {port;})
+app.listen(port, function() {
+    console.log("Server start!")
+})
